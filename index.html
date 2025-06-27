@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sohil Khan - Data Analyst</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: "#9B6B9E", secondary: "#E2A5C7", accent: "#00F5D4" },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+            },
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            slideIn: {
+              '0%': { opacity: 0, transform: 'translateX(-20px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            fadeInScale: {
+              '0%': { opacity: 0, transform: 'scale(0.95)' },
+              '100%': { opacity: 1, transform: 'scale(1)' }
+            },
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            fadeInLeft: {
+              '0%': { opacity: 0, transform: 'translateX(-40px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            fadeInRight: {
+              '0%': { opacity: 0, transform: 'translateX(40px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            fadeInDown: {
+              '0%': { opacity: 0, transform: 'translateY(-40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            zoomIn: {
+              '0%': { opacity: 0, transform: 'scale(0.8)' },
+              '100%': { opacity: 1, transform: 'scale(1)' }
+            },
+            spin: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' }
+            },
+            spinReverse: {
+              '0%': { transform: 'rotate(360deg)' },
+              '100%': { transform: 'rotate(0deg)' }
+            },
+            typing: {
+              '0%': { width: '0' },
+              '100%': { width: '100%' }
+            },
+            blink: {
+              '0%, 100%': { 'border-color': 'transparent' },
+              '50%': { 'border-color': '#00F5D4' }
+            },
+            pulse: {
+              '0%, 100%': { transform: 'scale(1)', opacity: 1 },
+              '50%': { transform: 'scale(1.05)', opacity: 0.8 }
+            }
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            fadeIn: 'fadeIn 0.8s ease-out forwards',
+            slideIn: 'slideIn 0.8s ease-out forwards',
+            fadeInScale: 'fadeInScale 0.6s ease-out forwards',
+            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+            fadeInLeft: 'fadeInLeft 0.8s ease-out forwards',
+            fadeInRight: 'fadeInRight 0.8s ease-out forwards',
+            fadeInDown: 'fadeInDown 0.8s ease-out forwards',
+            zoomIn: 'zoomIn 0.8s ease-out forwards',
+            spin: 'spin 1.5s linear infinite',
+            spinReverse: 'spinReverse 1.8s linear infinite',
+            typing: 'typing 3s steps(40, end) forwards, blink .75s step-end infinite',
+            pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+          }
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+  />
+  <style>
+    /* Enhanced Loading Animation */
+    .animation-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f2027;
+      z-index: 10000;
+      animation: fadeOut 1s forwards 2.5s;
+    }
+
+    .logo-animation {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .logo-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      border-top-color: #00F5D4;
+      animation: spin 1.5s linear infinite;
+      filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.5));
+    }
+
+    .logo-circle:nth-child(2) {
+      border-top-color: #9B6B9E;
+      animation: spinReverse 1.8s linear infinite;
+      filter: drop-shadow(0 0 8px rgba(155, 107, 158, 0.5));
+    }
+
+    .logo-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #00F5D4, #9B6B9E);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: fadeInScale 1s forwards 1.5s;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .loading-subtext {
+      position: absolute;
+      bottom: -50px;
+      width: 100%;
+      text-align: center;
+      color: #d0c3e5;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards 2s;
+    }
+
+    /* New styles for 3D cards, slider, and about page */
+    .figma-3d-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+      perspective: 1000px;
+    }
+    
+    .figma-element {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 30px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .figma-element::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(155,107,158,0.2) 0%, transparent 70%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .figma-element:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+      background: rgba(155, 107, 158, 0.15);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .figma-element:hover::before {
+      opacity: 1;
+    }
+    
+    .figma-element i {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00F5D4;
+      display: block;
+    }
+    
+    .figma-element h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .figma-element p {
+      color: #d0c3e5;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Certificates Section */
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .certificate-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(226, 165, 199, 0.1);
+    }
+    
+    .certificate-card:hover {
+      transform: translateY(-10px);
+      background: rgba(155, 107, 158, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    
+    .certificate-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .certificate-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .certificate-card:hover .certificate-image img {
+      transform: scale(1.05);
+    }
+    
+    .certificate-content {
+      padding: 25px;
+    }
+    
+    .certificate-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .certificate-content p {
+      color: #d0c3e5;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+    
+    .certificate-badge {
+      display: inline-block;
+      background: rgba(0, 245, 212, 0.15);
+      color: #00F5D4;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    
+    .verify-link {
+      display: inline-block;
+      color: #9B6B9E;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      text-decoration: none;
+      border-bottom: 1px dashed #9B6B9E;
+      transition: all 0.3s ease;
+    }
+    
+    .verify-link:hover {
+      color: #00F5D4;
+      border-bottom-color: #00F5D4;
+    }
+    
+    /* Slider Styles */
+    .analytics-slider {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      height: 500px;
+    }
+    
+    .slider-container {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      height: 100%;
+    }
+    
+    .slider-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .slider-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .slider-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 40px;
+      background: linear-gradient(transparent, rgba(45, 31, 61, 0.9));
+      color: white;
+    }
+    
+    .slider-title {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .slider-description {
+      max-width: 600px;
+      color: #d0c3e5;
+      line-height: 1.6;
+    }
+    
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(155, 107, 158, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .slider-nav:hover {
+      background: rgba(155, 107, 158, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .slider-prev {
+      left: 20px;
+    }
+    
+    .slider-next {
+      right: 20px;
+    }
+    
+    .slider-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-dot.active {
+      background: #00F5D4;
+      transform: scale(1.3);
+    }
+    
+    /* About Page Styles */
+    .about-section {
+      padding: 100px 0;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      height: 500px;
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .about-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+    
+    .about-content h2 span {
+      color: #9B6B9E;
+    }
+    
+    .about-content p {
+      color: #d0c3e5;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .stat-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(226, 165, 199, 0.1);
+    }
+    
+    .stat-box:hover {
+      background: rgba(155, 107, 158, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00F5D4;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: #d0c3e5;
+      font-size: 1rem;
+    }
+    
+    .about-button {
+      display: inline-block;
+      background: #9B6B9E;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid #9B6B9E;
+    }
+    
+    .about-button:hover {
+      background: transparent;
+      color: #9B6B9E;
+      transform: translateY(-5px);
+    }
+    
+    /* Certificate Modal */
+    .certificate-modal-content {
+      max-width: 900px;
+    }
+    
+    .certificate-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+        /* Updated Hero Section */
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .hero-text {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+    }
+    
+    .hero-text.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* 3D Data Visualization Container */
+    .figma-3d-container {
+      position: relative;
+      height: 500px;
+      transform-style: preserve-3d;
+      animation: rotate 30s infinite linear;
+      perspective: 1000px;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotateY(0deg) rotateX(5deg); }
+      100% { transform: rotateY(360deg) rotateX(5deg); }
+    }
+    
+    .figma-element {
+      position: absolute;
+      width: 200px;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      transition: all 0.5s ease;
+      transform-style: preserve-3d;
+      text-align: center;
+    }
+    
+    .figma-element:hover {
+      transform: translateZ(50px) scale(1.05);
+      background: rgba(155, 107, 158, 0.2);
+      box-shadow: 0 30px 60px rgba(155, 107, 158, 0.4);
+    }
+    
+    .figma-element i {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #00F5D4;
+    }
+    
+    .figma-element h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .figma-element p {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #d0d0ff;
+    }
+    
+    .element1 {
+      transform: translateZ(100px) rotateY(0deg);
+      top: 10%;
+      left: 20%;
+    }
+    
+    .element2 {
+      transform: translateZ(200px) rotateY(60deg);
+      top: 40%;
+      left: 50%;
+    }
+    
+    .element3 {
+      transform: translateZ(150px) rotateY(120deg);
+      top: 20%;
+      left: 70%;
+    }
+    
+    .element4 {
+      transform: translateZ(180px) rotateY(180deg);
+      top: 60%;
+      left: 30%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .figma-3d-container {
+        order: -1;
+        height: 400px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .figma-element {
+        width: 160px;
+        height: 200px;
+        padding: 15px;
+      }
+      
+      .figma-element i {
+        font-size: 36px;
+      }
+      
+      .figma-element h3 {
+        font-size: 1.2rem;
+      }
+      
+      .figma-element p {
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        height: 400px;
+      }
+      
+      .figma-3d-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .analytics-slider {
+        height: 400px;
+      }
+      
+      .slider-overlay {
+        padding: 20px;
+      }
+      
+      .slider-title {
+        font-size: 1.5rem;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #2D1F3D;
+      color: #dad7d7;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    .heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .subheading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(45,31,61,0.9) 0%, rgba(155,107,158,0.8) 100%);
+    }
+    .floating-shape {
+      position: absolute;
+      animation: float 8s ease-in-out infinite;
+    }
+    .floating-shape-1 {
+      animation-delay: 0s;
+    }
+    .floating-shape-2 {
+      animation-delay: 1s;
+    }
+    .floating-shape-3 {
+      animation-delay: 2s;
+    }
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #00F5D4;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .active::after {
+      width: 100%;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(155, 107, 158, 0.8);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: rgba(155, 107, 158, 1);
+      transform: translateY(-5px);
+    }
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .astronaut-model {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, rgba(155,107,158,0.1) 0%, rgba(226,165,199,0.1) 100%);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .astronaut-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .form-success {
+      display: none;
+      padding: 15px;
+      background: rgba(0, 245, 212, 0.1);
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .form-error {
+      display: none;
+      padding: 15px;
+      background: rgba(255, 100, 100, 0.1);
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .social-link {
+      transition: all 0.3s ease;
+    }
+    .social-link:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(45, 31, 61, 0.95);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .modal-content {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(45, 31, 61, 0.9);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      animation: fadeInScale 0.5s ease-out forwards;
+    }
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(155, 107, 158, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .close-modal:hover {
+      background: rgba(155, 107, 158, 1);
+      transform: rotate(90deg);
+    }
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column-reverse;
+      }
+      .astronaut-model {
+        height: 300px;
+      }
+      .modal-content {
+        padding: 20px;
+      }
+    }
+    
+    /* Animations for loading screen */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+    
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    <!-- Add these styles inside your existing 
+  /* Fixed Header */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(45, 31, 61, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+  }
+      /* Mobile Menu Styles */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 75%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(45, 31, 61, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      padding: 80px 30px 30px;
+      transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      overflow-y: auto;
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    #mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      background: rgba(155, 107, 158, 0.3);
+    }
+    
+    .mobile-nav-link::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #00F5D4;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover::after,
+    .mobile-nav-link.active::after {
+      opacity: 1;
+    }
+    
+    .close-mobile-menu {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(155, 107, 158, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .close-mobile-menu:hover {
+      background: rgba(155, 107, 158, 0.5);
+      transform: rotate(90deg);
+    }
+    
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  /* Adjust padding for first content section */
+  #home {
+    padding-top: 80px; /* Match header height */
+  }
+</style>
+  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Loading Animation -->
+
+
+  <div class="relative min-h-screen">
+    <!-- Background Image -->
+    <div
+      class="absolute inset-0 z-0"
+      style="background-image: url('https://i.postimg.cc/26TLLRms/360-F-193308746-qz-Yd-WJo8-ZIP90-POXt-J6-Dy7-L8-Pea-Ivk-Hb.png'); background-size: cover; background-position: center; opacity: 0.8;"
+    ></div>
+    <!-- 3D Floating Shapes -->
+    <div class="absolute inset-0 z-10 overflow-hidden">
+      <div
+        class="floating-shape floating-shape-1 w-64 h-64 rounded-full bg-gradient-to-br from-[#B784B7]/30 to-[#E2A5C7]/30 blur-xl"
+        style="top: 15%; right: 10%;"
+      ></div>
+      <div
+        class="floating-shape floating-shape-2 w-80 h-80 rounded-full bg-gradient-to-tr from-[#E2A5C7]/20 to-[#9B6B9E]/20 blur-xl"
+        style="top: 60%; left: 5%;"
+      ></div>
+      <div
+        class="floating-shape floating-shape-3 w-72 h-72 rounded-full bg-gradient-to-bl from-[#9B6B9E]/25 to-[#B784B7]/25 blur-xl"
+        style="top: 30%; left: 25%;"
+      ></div>
+    </div>
+    <!-- Content Container -->
+      <!-- Mobile Menu -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+  
+  <div id="mobile-menu">
+    <div class="close-mobile-menu">
+      <i class="ri-close-line ri-xl text-white"></i>
+    </div>
+    
+    <div class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-link active">Home</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-[#E2A5C7]/20">
+      <div class="flex space-x-6 justify-center">
+        <a href="https://www.linkedin.com/in/sohil-khan-b222b4369/" class="text-gray-300 hover:text-accent transition-colors social-link" target="_blank">
+          <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+            <i class="ri-linkedin-fill ri-lg"></i>
+          </div>
+        </a>
+        <a href="https://github.com/SSohil112" class="text-gray-300 hover:text-accent transition-colors social-link" target="_blank">
+          <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+            <i class="ri-github-fill ri-lg"></i>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/official_sohil03/" class="text-gray-300 hover:text-accent transition-colors social-link" target="_blank">
+          <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+            <i class="ri-instagram-x-fill ri-lg"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+    <div class="relative z-20">
+      <!-- Navigation -->
+      <nav class="px-6 py-4 flex justify-between items-center animate-on-scroll" data-animation="fadeInDown">
+        <div class="font-['Pacifico'] text-2xl text-white">Sohil Khan</div>
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-white hover:text-secondary transition-colors active"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="nav-link text-white hover:text-secondary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-white hover:text-secondary transition-colors"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="nav-link text-white hover:text-secondary transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-white hover:text-secondary transition-colors"
+            >Contact</a
+          >
+        </div>
+        <div class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i class="ri-menu-line ri-2x text-white"></i>
+        </div>
+      </nav>
+      <!-- Hero Section -->
+        <!-- Updated Hero Section with 3D Cards -->
+  <!-- Updated Hero Section -->
+<!-- Hero Section with Reduced Top Space -->
+<div id="home" class="w-full px-6 md:px-12 pt-16 md:pt-30 pb-16">
+  <div class="container hero-content">
+      <div class="hero-text animate-on-scroll" data-animation="fadeInLeft" data-delay="0.2s">
+        <h1 class="heading text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight text-white">
+          Sohil Khan: Driving Insights Through Data
+        </h1>
+        <p class="subheading text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+          Transforming complex datasets into actionable business intelligence. Specialized in data visualization, predictive analytics, and machine learning solutions.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#projects" class="hero-button">
+            <button class="!rounded-button bg-primary hover:bg-primary/90 text-white px-8 py-3 font-medium transition-all whitespace-nowrap">
+              View Portfolio
+            </button>
+          </a>
+          <button id="explore-projects" class="!rounded-button border-2 border-secondary text-secondary hover:bg-secondary/10 px-8 py-3 font-medium transition-all whitespace-nowrap">
+            Explore Projects
+          </button>
+        </div>
+      </div>
+      
+      <!-- 3D Data Visualization Elements -->
+      <div class="figma-3d-container animate-on-scroll" data-animation="fadeInRight" data-delay="0.4s">
+        <div class="figma-element element1">
+          <i class="fas fa-chart-line"></i>
+          <h3>Visualization</h3>
+          <p>Create compelling data visualizations that tell a story</p>
+        </div>
+        <div class="figma-element element2">
+          <i class="fas fa-brain"></i>
+          <h3>Predictive Analytics</h3>
+          <p>Build models to forecast trends and inform decisions</p>
+        </div>
+        <div class="figma-element element3">
+          <i class="fas fa-database"></i>
+          <h3>Data Warehousing</h3>
+          <p>Design efficient data storage and retrieval systems</p>
+        </div>
+        <div class="figma-element element4">
+          <i class="fas fa-users"></i>
+          <h3>Collaboration</h3>
+          <p>Work with teams to drive data-informed strategies</p>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Stats Section -->
+      <div class="w-full px-6 md:px-12 py-16">
+        <div
+          class="max-w-7xl mx-auto bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-12 animate-on-scroll" data-animation="fadeInUp"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <h3 class="text-5xl font-bold text-primary mb-2" id="years-count">0</h3>
+              <p class="text-gray-300">Dashboard Created</p>
+            </div>
+            <div class="text-center">
+              <h3 class="text-5xl font-bold text-primary mb-2" id="projects-count">0</h3>
+              <p class="text-gray-300">Projects Completed</p>
+            </div>
+            <div class="text-center">
+              <h3 class="text-5xl font-bold text-primary mb-2" id="clients-count">0</h3>
+              <p class="text-gray-300">SQL & Python Projects</p>
+            </div>
+            <div class="text-center">
+              <h3 class="text-5xl font-bold text-primary mb-2" id="awards-count">0</h3>
+              <p class="text-gray-300">Certificates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Services Section -->
+      <div id="skills" class="w-full px-6 md:px-12 py-16">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="heading text-3xl md:text-4xl text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
+            My <span class="text-primary">Skills</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.1s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-bar-chart-grouped-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">Data Visualization</h3>
+              <p class="text-gray-300">
+                Transform complex data into clear, interactive visual insights
+                that drive decision-making and tell compelling data stories.
+              </p>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-ai-generate-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">Python</h3>
+              <p class="text-gray-300">
+Adept in Python for data analysis, manipulation, and visualization. Experienced with key libraries like Pandas, Matplotlib, and Seaborn for comprehensive data insights.
+              </p>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-dashboard-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">Dashboard Development</h3>
+              <p class="text-gray-300">
+                Create custom, interactive dashboards that provide real-time
+                insights and monitoring capabilities for your business
+                metrics.
+              </p>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-database-2-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">SQL</h3>
+              <p class="text-gray-300">
+               Proficient in SQL for robust data retrieval, manipulation, and analysis. Experienced in complex queries, database management, and optimizing performance for insightful reporting.
+              </p>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.5s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-line-chart-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">Business Intelligence</h3>
+              <p class="text-gray-300">
+                Translate data insights into strategic business
+                recommendations that drive growth, efficiency, and competitive
+                advantage.
+              </p>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all hover:bg-white/10 service-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/20 rounded-xl mb-6"
+              >
+                <i class="ri-book-read-line ri-2x text-primary"></i>
+              </div>
+              <h3 class="subheading text-xl mb-4">Data Literacy Training</h3>
+              <p class="text-gray-300">
+                Empower your team with the skills to understand, interpret, and effectively utilize data in their daily decision-making.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Featured Projects -->
+      <div id="projects" class="w-full px-6 md:px-12 py-16">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="heading text-3xl md:text-4xl text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
+            Featured <span class="text-primary">Projects</span>
+          </h2>
+          <!-- Project Slider -->
+          <div class="analytics-slider animate-on-scroll" data-animation="zoomIn">
+            <div class="slider-container" id="projects-slider-container">
+              <div class="slider-slide">
+                <img src="https://i.postimg.cc/HLd63rky/Screenshot-2025-06-23-111431.png">
+                <div class="slider-overlay">
+                  <h3 class="slider-title">Weather Dashboard</h3>
+                  <p class="slider-description">An interactive weather dashboard showing real-time temperature, forecast, air quality, and rain probability using modern data visualization techniques.</p>
+                  <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power bi</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">API</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">LIVE'</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-slide">
+                <img src="https://i.postimg.cc/XNtSLgSB/Screenshot-2025-06-17-124518.png">
+                <div class="slider-overlay">
+                  <h3 class="slider-title">E-commerce Customer Insights</h3>
+                  <p class="slider-description">Analyzed customer behavior patterns to increase conversion rates by 27% for online retailer.</p>
+                  <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">E-Commerce</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Dax</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power BI</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-slide">
+                <img src="https://i.postimg.cc/jdy1gPPv/Screenshot-2025-06-19-195444.png" alt="Healthcare Analytics" class="slider-image">
+                <div class="slider-overlay">
+                  <h3 class="slider-title">Healthcare Analytics Platform</h3>
+                  <p class="slider-description">Developed a comprehensive healthcare analytics platform reducing patient readmission rates by 18%.</p>
+                  <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Hospital</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power bi</span>
+                    <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">SQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-nav slider-prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-nav slider-next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="slider-dots" id="projects-slider-dots"></div>
+          </div>
+          
+          <!-- View All Projects Button -->
+          <div class="text-center mt-12">
+            <button id="view-all-projects" class="!rounded-button bg-primary hover:bg-primary/90 text-white px-8 py-3 font-medium transition-all whitespace-nowrap">
+              View All Projects
+            </button>
+          </div>
+        </div>
+      </div>
+  <!-- Certificates Section -->
+  <div id="certificates" class="w-full px-6 md:px-12 py-16">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="heading text-3xl md:text-4xl text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
+        My <span class="text-primary">Certificates</span>
+      </h2>
+      <div class="certificates-grid">
+        <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.1s">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/PqK22d7K/IBMDesign20250529-26-p6aqpi-1.png" alt="Data Analyst Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Data Analysis</span>
+            <h3>Advanced Data Analytics</h3>
+            <p>IBM Data Analysis Using Python course, I take pride in transforming complex datasets into actionable insights and maintaining strong UI/UX in my dashboards. </p>
+            <p class="text-secondary">Issued: May 2025</p>
+            <a href="https://www.credly.com/badges/0c631abf-07e9-422b-b551-b985c9d223d2/linked_in_profile" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/FF2csB8K/8403655-87624101748511141109-1.png" alt="Machine Learning Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Data Analysis</span>
+            <h3>SKILLUP</h3>
+            <p>Certified in Introduction to Data Analytics by Great Learning, I build insights from data using tools like Excel, SQL, and Python to support smarter decisions.</p>
+            <p class="text-secondary">Issued: May 2025</p>
+            <a href="https://simpli-web.app.link/e/MEDML3gtHLb" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <div class="certificate-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/qqnGvVG8/140-13-ce559fb411cde8b5ca9e765d86effbde-0-0-1.png" alt="Big Data Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">SQL</span>
+            <h3>SKILL COURSE</h3>
+            <p>Completed the 30-Day SQL Micro Course, gaining hands-on experience in writing queries, managing databases, and extracting actionable insights from structured data.</p>
+            <p class="text-secondary">Issued: June 2025</p>
+            <a href="https://i.postimg.cc/qqnGvVG8/140-13-ce559fb411cde8b5ca9e765d86effbde-0-0-1.png" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <button id="view-all-certificates" class="!rounded-button bg-primary hover:bg-primary/90 text-white px-8 py-3 font-medium transition-all whitespace-nowrap">
+          View All Certificates
+        </button>
+      </div>
+    </div>
+  </div>
+        <!-- Data Analytics Slider -->
+  <div class="w-full px-6 md:px-12 py-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="analytics-slider animate-on-scroll" data-animation="zoomIn">
+        <div class="slider-container" id="slider-container">
+          <div class="slider-slide">
+            <img src="https://i.postimg.cc/GtsJH9B7/Screenshot-2025-06-26-123007.png" alt="Data Analytics" class="slider-image">
+            <div class="slider-overlay">
+              <h3 class="slider-title">1-Step</h3>
+              <p class="slider-description">In my data cleaning process, I use Python's Pandas library to remove duplicates, handle null values, correct data types, and trim whitespace from the data. I also fix any other inconsistencies to ensure data quality.</p>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://i.postimg.cc/pdbTHrxV/Screenshot-2025-06-26-123136.png" alt="Machine Learning" class="slider-image">
+            <div class="slider-overlay">
+              <h3 class="slider-title">2-Step</h3>
+              <p class="slider-description"> I write complex SQL queries to insert data into and extract data from a database. I also perform data manipulation directly within SQL.</p>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://i.postimg.cc/J4s4HZz4/Screenshot-2025-06-26-123358.png" alt="Big Data" class="slider-image">
+            <div class="slider-overlay">
+              <h3 class="slider-title">3-Step</h3>
+              <p class="slider-description">I create dashboards and perform data visualization in Power BI. If the data isn't clean, I also take it into Power Query to cleanse it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-nav slider-prev">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-nav slider-next">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="slider-dots" id="slider-dots"></div>
+      </div>
+    </div>
+  </div>
+        <!-- Detailed About Section -->
+  <div id="about" class="about-section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="about-grid">
+        <div class="about-image animate-on-scroll" data-animation="fadeInLeft" data-delay="0.1s">
+          <img src="https://i.postimg.cc/BvPLfBNK/Screenshot-2025-06-26-125233.png" alt="Sohil Khan">
+        </div>
+        
+        <div class="about-content animate-on-scroll" data-animation="fadeInRight" data-delay="0.2s">
+          <h2>About <span class="text-primary">Me</span></h2>
+          <p>Hi there! I'm Sohil Khan, a passionate and results-driven aspiring Data Analyst currently in my second year at Delhi University. At just 19 years old, I've already immersed myself in the world of data, completing over 50 projects that span various datasets and analytical challenges.</p>
+          
+          <p>My journey in data is fueled by a strong desire to extract meaningful insights and transform raw information into actionable strategies. I take pride in not just analyzing data, but also in presenting it effectively. This is where my keen eye for UI/UX design comes into play – I ensure that every dashboard and visualization I create is not only accurate but also intuitive, user-friendly, and aesthetically pleasing.</p>
+          
+          <div class="about-stats">
+            <div class="stat-box animate-on-scroll" data-animation="zoomIn" data-delay="0.1s">
+              <div class="stat-value" id="dashboards-count">0</div>
+              <div class="stat-label">Dashboard Created</div>
+            </div>
+            <div class="stat-box animate-on-scroll" data-animation="zoomIn" data-delay="0.2s">
+              <div class="stat-value" id="projects-total">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-box animate-on-scroll" data-animation="zoomIn" data-delay="0.3s">
+              <div class="stat-value" id="sql-python">0</div>
+              <div class="stat-label">SQL & Python Projects</div>
+            </div>
+            <div class="stat-box animate-on-scroll" data-animation="zoomIn" data-delay="0.4s">
+              <div class="stat-value" id="certs-count">0</div>
+              <div class="stat-label">Certificates</div>
+            </div>
+          </div>
+          
+          <p>When I'm not analyzing data, you'll find me contributing to open-source data visualization projects, speaking at industry conferences, or exploring the latest advancements in AI.</p>
+          
+          <a href="#contact" class="about-button">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Contact Section -->
+      <div id="contact" class="w-full px-6 md:px-12 py-16">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="heading text-3xl md:text-4xl text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
+            Get In <span class="text-primary">Touch</span>
+          </h2>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="animate-on-scroll" data-animation="fadeInLeft" data-delay="0.1s">
+              <h3 class="subheading text-2xl mb-6">
+                Let's Discuss Your Data Needs
+              </h3>
+              <p class="text-gray-300 mb-8">
+                Ready to transform your data into actionable insights? I'm
+                here to help you navigate the complexities of data analysis
+                and visualization. Fill out the form or reach out directly
+                through any of the channels below.
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-full mr-4"
+                  >
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <span>sohilkhan971170@gmail.com</span>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-full mr-4"
+                  >
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                  <span>+91 83683 98129</span>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-full mr-4"
+                  >
+                    <i class="ri-map-pin-line text-primary"></i>
+                  </div>
+                  <span>Delhi, India</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 animate-on-scroll" data-animation="fadeInRight" data-delay="0.2s">
+              <form id="contact-form" action="https://getform.io/f/aqomygva" method="POST"></form>
+              <form id="contact-form" action="https://getform.io/f/aqomygva" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://getform.io/f/aqomygva">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label for="name" class="block mb-2 text-sm">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      class="w-full bg-white/10 border-none rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label for="email" class="block mb-2 text-sm"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      class="w-full bg-white/10 border-none rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <label for="subject" class="block mb-2 text-sm"
+                    >Subject</label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full bg-white/10 border-none rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block mb-2 text-sm"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    class="w-full bg-white/10 border-none rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="!rounded-button w-full bg-primary hover:bg-primary/90 text-white py-3 font-medium transition-all whitespace-nowrap"
+                >
+                  Send Message
+                </button>
+                <div id="form-success" class="form-success">
+                  <i class="ri-checkbox-circle-fill text-green-400 text-2xl mb-2"></i>
+                  <p>Thank you for your message! I'll get back to you soon.</p>
+                </div>
+                <div id="form-error" class="form-error">
+                  <i class="ri-error-warning-fill text-red-400 text-2xl mb-2"></i>
+                  <p>There was an error sending your message. Please try again later.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="w-full px-6 md:px-12 py-12 border-t border-[#E2A5C7]/20 animate-on-scroll" data-animation="fadeInUp">
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center"
+        >
+          <div class="mb-8 md:mb-0">
+            <div class="font-['Pacifico'] text-2xl text-white mb-4">
+              Sohil Khan
+            </div>
+            <p class="text-gray-400 mb-2">
+              Data Analyst & Visualization Specialist
+            </p>
+            <p class="text-gray-500 text-sm">
+              Turning data into strategic insights
+            </p>
+          </div>
+          <div class="flex flex-col items-center mb-8 md:mb-0">
+            <div class="flex space-x-6 mb-4">
+              <a
+                href="https://www.linkedin.com/in/sohil-khan-b222b4369/"
+                class="text-gray-400 hover:text-accent transition-colors social-link"
+                target="_blank"
+              >
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+                  <i class="ri-linkedin-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="https://github.com/SSohil112"
+                class="text-gray-400 hover:text-accent transition-colors social-link"
+                target="_blank"
+              >
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+                  <i class="ri-github-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href=""
+                class="text-gray-400 hover:text-accent transition-colors social-link"
+                target="_blank"
+              >
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+                  <i class="ri-twitter-x-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="https://www.instagram.com/official_sohil03/"
+                class="text-gray-400 hover:text-accent transition-colors social-link"
+                target="_blank"
+              >
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full">
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </div>
+              </a>
+            </div>
+            <div class="text-gray-500 text-sm">
+              Connect with me on social media
+            </div>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-gray-400 mb-2">
+              © 2025 Sohil Khan. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm">
+              Designed with ❤️ for data enthusiasts
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="ri-arrow-up-line ri-xl"></i>
+  </div>
+
+  <!-- All Projects Modal -->
+  <div id="all-projects-modal" class="modal">
+    <div class="modal-content">
+      <div class="close-modal">
+        <i class="ri-close-line ri-xl"></i>
+      </div>
+      <h2 class="heading text-3xl md:text-4xl text-center mb-16">
+        All <span class="text-primary">Projects</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project cards would go here -->
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/jdy1gPPv/Screenshot-2025-06-19-195444.png"
+              alt="Healthcare Analytics"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Healthcare Analytics Platform</h3>
+            <p class="text-gray-300 mb-4">
+              Developed a comprehensive healthcare analytics platform reducing patient readmission rates by 18%.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power bi</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Hospital</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">SQL</span>
+            </div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiMGJjNmY5NTMtYTM2OS00NjY3LWI3N2QtZDJhMTI0NDM3MDgxIiwidCI6IjU3ZmMxNjk1LTVmZDMtNDUzNy04YzBkLTA0ZjZiZGY1MTNlMiJ9">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/XNtSLgSB/Screenshot-2025-06-17-124518.png"
+              alt="E-commerce Analytics"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">E-commerce Customer Insights</h3>
+            <p class="text-gray-300 mb-4">
+              Analyzed customer behavior patterns to increase conversion rates by 27% for online retailer.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Zometo</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power BI</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">E-Commerce</span>
+            </div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiNDg1NjRmZDAtYjk5Yy00OWMzLWIzOTYtMWZmNGQ5YWY2OWE3IiwidCI6IjU3ZmMxNjk1LTVmZDMtNDUzNy04YzBkLTA0ZjZiZGY1MTNlMiJ9">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/HLd63rky/Screenshot-2025-06-23-111431.png"
+              alt="Supply Chain Optimization"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Weather Dashboard</h3>
+            <p class="text-gray-300 mb-4">
+              An interactive weather dashboard showing real-time temperature, forecast, air quality, and rain probability using modern data visualization techniques.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full"> API </span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power bi</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">LIVE'</span>
+            </div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiZjg4MzZjYjgtYTM0NC00ZDhkLThmYTgtOTBjYTkwZGYyNjhlIiwidCI6IjU3ZmMxNjk1LTVmZDMtNDUzNy04YzBkLTA0ZjZiZGY1MTNlMiJ9">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/SKPVNxcJ/Screenshot-2025-06-11-212802.png"
+              alt="Financial Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Sales Dashboard</h3>
+            <p class="text-gray-300 mb-4">
+              A dynamic sales dashboard displaying profit, return rate, recyclable products, and product-wise performance using interactive visual analytics.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power BI</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Sales</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">CSV</span>
+            </div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiNmYyMmY3N2QtZDQ2Ni00ODE3LWJlODMtODkxMDRlZTgzZmU1IiwidCI6IjU3ZmMxNjk1LTVmZDMtNDUzNy04YzBkLTA0ZjZiZGY1MTNlMiJ9">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/nrhz1Y6P/Screenshot-2025-06-02-122740.png"
+              alt="Sales Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Dynamic Sales Analytics Dashboard</h3>
+            <p class="text-gray-300 mb-4">
+              Gain a comprehensive overview of your sales performance. Our dashboard allows you to monitor crucial KPIs.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Power bi</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Dynamic</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Sales</span>
+            </div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiZjE1ZTQxMDItZDMyNi00ZDgyLTllMjgtYWEzMDJkYTYwYTc3IiwidCI6IjU3ZmMxNjk1LTVmZDMtNDUzNy04YzBkLTA0ZjZiZGY1MTNlMiJ9">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/3J6RgG9t/Screenshot-2025-05-14-123212.png"
+              alt="Marketing Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Coffee Shop Sales Dashboard</h3>
+            <p class="text-gray-300 mb-4">
+              Point-of-sale analytics for tracking transactions, product performance, and revenue trends in a cafe environment.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Sales</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Coffee Shop</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Excel</span>
+            </div>
+            <a href="https://i.postimg.cc/3J6RgG9t/Screenshot-2025-05-14-123212.png" target="_blank" class="!rounded-button w-full bg-secondary hover:bg-secondary/90 text-white py-2 text-center transition-all">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+               <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/qvQ92YPs/30-Days-sql-Assignment.png"
+              alt="Financial Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">SQL Query</h3>
+            <p class="text-gray-300 mb-4">
+              This project showcases a series of SQL queries designed to analyze hospital operational data. 
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">PostgreSQL</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Hospital</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Database</span>
+            </div>
+            <a href="https://sohilkhan1.tiiny.site">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+               <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/vBC0J3tN/Retail.png"
+              alt="Financial Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">SQL Query Retail Analysis</h3>
+            <p class="text-gray-300 mb-4">
+             This project, authored by Sohil Khan, utilizes SQL to perform a deep-dive analysis of retail data.  
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">PostgreSQL</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Retail</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Database</span>
+            </div>
+            <a href="https://sohilkhan.tiiny.site">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+               <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden project-card">
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://i.postimg.cc/pXb0kcT9/Screenshot-2025-05-13-120915.png"
+              alt="Financial Dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="subheading text-xl mb-2">Sales Dashboard</h3>
+            <p class="text-gray-300 mb-4">
+              A dynamic sales dashboard displaying profit, return rate, recyclable products, and product-wise performance using interactive visual analytics.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">E-Commerce</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Amazon</span>
+              <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Excel</span>
+            </div>
+            <a href="https://i.postimg.cc/pXb0kcT9/Screenshot-2025-05-13-120915.png">
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-gray-400 mb-4">Interested in seeing more of my work?</p>
+        <button class="!rounded-button border border-secondary text-secondary hover:bg-secondary/10 px-6 py-2 text-sm font-medium transition-all">
+          Thanks For visiting ❤️
+        </button>
+      </div>
+    </div>
+  </div>
+    <!-- All Certificates Modal -->
+  <div id="all-certificates-modal" class="modal">
+    <div class="modal-content certificate-modal-content">
+      <div class="close-modal">
+        <i class="ri-close-line ri-xl"></i>
+      </div>
+      <h2 class="heading text-3xl md:text-4xl text-center mb-16">
+        My <span class="text-primary">Certificates</span>
+      </h2>
+      <div class="certificate-modal-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/PqK22d7K/IBMDesign20250529-26-p6aqpi-1.png" alt="Data Analyst Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Python</span>
+            <h3>IBM</h3>
+            <p>IBM Data Analysis Using Python course, I take pride in transforming complex datasets into actionable insights and maintaining strong UI/UX in my dashboards.</p>
+            <a href="https://www.credly.com/badges/0c631abf-07e9-422b-b551-b985c9d223d2/linked_in_profile" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/FF2csB8K/8403655-87624101748511141109-1.png">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Data Analysis</span>
+            <h3>SKILLUP</h3>
+            <p>Certified in Introduction to Data Analytics by Great Learning, I build insights from data using tools like Excel, SQL, and Python to support smarter decisions.</p>
+            <a href="https://simpli-web.app.link/e/MEDML3gtHLb" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 3 -->
+        <div class="certificate-card">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/qqnGvVG8/140-13-ce559fb411cde8b5ca9e765d86effbde-0-0-1.png" alt="Big Data Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">SQL</span>
+            <h3>Skill Course</h3>
+            <p>Completed the 30-Day SQL Micro Course, gaining hands-on experience in writing queries, managing databases, and extracting actionable insights from structured data.</p>
+            <a href="https://i.postimg.cc/qqnGvVG8/140-13-ce559fb411cde8b5ca9e765d86effbde-0-0-1.png" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 4 -->
+        <div class="certificate-card">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/wBWn3596/8407308-87624101748587264630-1.png">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Generative Ai</span>
+            <h3>Google</h3>
+            <p>Completed the Introduction to Generative AI Studio, exploring the fundamentals of AI content creation and real-world generative tools.</p>
+            <a href="https://simpli-web.app.link/e/NUs937pqFLb" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 5 -->
+        <div class="certificate-card">
+          <div class="certificate-image">
+            <img src="https://i.postimg.cc/TYpkBFmY/147-12-ccd39d0212bbc79816a99c1ad6dc767a-0-0-1.png" alt="Business Intelligence Certificate">
+          </div>
+          <div class="certificate-content">
+            <span class="certificate-badge">Powerbi</span>
+            <h3>Skill Course</h3>
+            <p>Completed a 7-hour Power BI course focused on building interactive dashboards and data visualizations for business insights.</p>
+            <a href="https://i.postimg.cc/TYpkBFmY/147-12-ccd39d0212bbc79816a99c1ad6dc767a-0-0-1.png" target="_blank" class="verify-link">Verify Certificate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced scroll animation function
+    function initScrollAnimations() {
+      // Create observer for animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const animation = entry.target.getAttribute('data-animation');
+            const delay = entry.target.getAttribute('data-delay') || 0;
+            
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+              
+              // Apply custom animation if needed
+              if (animation) {
+                entry.target.style.animation = `${animation} 0.8s ease-out forwards`;
+              }
+            }, parseFloat(delay) * 1000);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      // Observe all animate-on-scroll elements
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Initialize scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // After loading animation completes
+      setTimeout(() => {
+        document.body.style.overflow = 'auto';
+        initScrollAnimations();
+      }, 2500);
+      
+      // Back to top button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Form submission
+      const contactForm = document.getElementById('contact-form');
+      const formSuccess = document.getElementById('form-success');
+      const formError = document.getElementById('form-error');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Hide previous messages
+        formSuccess.style.display = 'none';
+        formError.style.display = 'none';
+        
+        // Simulate form submission
+        const formData = new FormData(contactForm);
+        
+        // In a real implementation, you would send this to a server
+        // For demo purposes, we'll simulate a successful submission
+        setTimeout(() => {
+          // Show success message
+          formSuccess.style.display = 'block';
+          
+          // Reset form
+          contactForm.reset();
+        }, 1000);
+      });
+      
+      // Initialize sliders
+      function initSlider(containerId, dotsContainerId) {
+        const container = document.getElementById(containerId);
+        const slides = container.querySelectorAll('.slider-slide');
+        const dotsContainer = document.getElementById(dotsContainerId);
+        let currentSlide = 0;
+        
+        // Create dots
+        slides.forEach((_, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('slider-dot');
+          if(index === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            goToSlide(index);
+          });
+          dotsContainer.appendChild(dot);
+        });
+        
+        // Navigation
+        document.querySelector('.slider-prev').addEventListener('click', () => {
+          goToSlide(currentSlide - 1);
+        });
+        
+        document.querySelector('.slider-next').addEventListener('click', () => {
+          goToSlide(currentSlide + 1);
+        });
+        
+        // Auto slide
+        let slideInterval = setInterval(() => {
+          goToSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Function to go to specific slide
+        function goToSlide(index) {
+          // Clear existing interval
+          clearInterval(slideInterval);
+          
+          // Wrap around
+          if(index < 0) index = slides.length - 1;
+          if(index >= slides.length) index = 0;
+          
+          // Update slide position
+          container.style.transform = `translateX(-${index * 100}%)`;
+          
+          // Update dots
+          document.querySelectorAll(`#${dotsContainerId} .slider-dot`).forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+          
+          currentSlide = index;
+          
+          // Restart auto slide
+          slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+          }, 5000);
+        }
+      }
+      
+      // Initialize the sliders
+      initSlider('slider-container', 'slider-dots');
+      initSlider('projects-slider-container', 'projects-slider-dots');
+      
+      // Initialize 3D card effects
+      function init3DCards() {
+        const cards = document.querySelectorAll('.figma-element');
+        
+        cards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const cardRect = card.getBoundingClientRect();
+            const x = e.clientX - cardRect.left;
+            const y = e.clientY - cardRect.top;
+            
+            const centerX = cardRect.width / 2;
+            const centerY = cardRect.height / 2;
+            
+            const rotateY = (x - centerX) / 25;
+            const rotateX = (centerY - y) / 25;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+          });
+        });
+      }
+      
+      // Initialize 3D cards
+      init3DCards();
+      
+      // Certificate Modal functionality
+      const viewAllCertBtn = document.getElementById('view-all-certificates');
+      const certModal = document.getElementById('all-certificates-modal');
+      const closeCertModalBtn = certModal.querySelector('.close-modal');
+      
+      function openCertModal() {
+        certModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeCertModal() {
+        certModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      if (viewAllCertBtn) viewAllCertBtn.addEventListener('click', openCertModal);
+      if (closeCertModalBtn) closeCertModalBtn.addEventListener('click', closeCertModal);
+      
+      certModal.addEventListener('click', function(e) {
+        if (e.target === certModal) {
+          closeCertModal();
+        }
+      });
+      
+      // Navigation active state
+      const sections = document.querySelectorAll('div[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      function updateActiveNav() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (window.scrollY >= sectionTop - 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav(); // Initialize on load
+      
+      // Smooth scroll for navigation links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Modal functionality for all projects
+      const viewAllBtn = document.getElementById('view-all-projects');
+      const exploreBtn = document.getElementById('explore-projects');
+      const modal = document.getElementById('all-projects-modal');
+      const closeModalBtn = document.querySelector('.close-modal');
+      
+      function openModal() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      if (viewAllBtn) viewAllBtn.addEventListener('click', openModal);
+      if (exploreBtn) exploreBtn.addEventListener('click', openModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      
+      // Close modal when clicking outside content
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Counter animation for stats
+      function animateStats() {
+        const years = document.getElementById('years-count');
+        const projects = document.getElementById('projects-count');
+        const clients = document.getElementById('clients-count');
+        const awards = document.getElementById('awards-count');
+        
+        const dashboards = document.getElementById('dashboards-count');
+        const projectsTotal = document.getElementById('projects-total');
+        const sqlPython = document.getElementById('sql-python');
+        const certs = document.getElementById('certs-count');
+        
+        const stats = [
+          { element: years, target: 20, duration: 2000 },
+          { element: projects, target: 50, duration: 2000 },
+          { element: clients, target: 10, duration: 2000 },
+          { element: awards, target: 5, duration: 2000 },
+          { element: dashboards, target: 20, duration: 2000 },
+          { element: projectsTotal, target: 50, duration: 2000 },
+          { element: sqlPython, target: 10, duration: 2000 },
+          { element: certs, target: 5, duration: 2000 }
+        ];
+        
+        stats.forEach(stat => {
+          let startValue = 0;
+          const endValue = stat.target;
+          const duration = stat.duration;
+          let startTime = null;
+          
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const value = Math.floor(progress * endValue);
+            stat.element.textContent = value;
+            
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              stat.element.textContent = endValue;
+            }
+          }
+          
+          requestAnimationFrame(step);
+        });
+      }
+      
+      // Start counter animation when stats section is in view
+      const statsSection = document.querySelector('.about-stats');
+      const heroStatsSection = document.querySelector('.max-w-7xl.mx-auto.bg-white\\/5');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStats();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(heroStatsSection);
+      observer.observe(statsSection);
+      
+      // Prevent scrolling during loading animation
+      document.body.style.overflow = 'hidden';
+    });
+    
+   
+  // Updated Contact Form Submission
+  const contactForm = document.getElementById('contact-form');
+  const formSuccess = document.getElementById('form-success');
+  const formError = document.getElementById('form-error');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const submitSpinner = document.getElementById('submit-spinner');
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitText.classList.add('hidden');
+    submitSpinner.classList.remove('hidden');
+    submitBtn.disabled = true;
+    
+    // Hide previous messages
+    formSuccess.style.display = 'none';
+    formError.style.display = 'none';
+    
+    // Get form data
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      subject: document.getElementById('subject').value,
+      message: document.getElementById('message').value
+    };
+
+    try {
+      // Send to backend (replace with your actual endpoint)
+      const response = await fetch('https://your-backend-domain.com/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Show success message
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      // Show error message
+      formError.style.display = 'block';
+      console.error('Error:', error);
+    } finally {
+      // Reset button state
+      submitText.classList.remove('hidden');
+      submitSpinner.classList.add('hidden');
+      submitBtn.disabled = false;
+    }
+  });
+      document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileMenuButton = document.querySelector('.md\\:hidden.w-10.h-10');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      const closeMobileMenu = document.querySelector('.close-mobile-menu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      }
+      
+      function closeMobileMenuHandler() {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
+      
+      if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+      }
+      
+      if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', closeMobileMenuHandler);
+      }
+      
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuHandler);
+      }
+      
+      // Close mobile menu when clicking on links
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          closeMobileMenuHandler();
+          
+          // Scroll to section
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            e.preventDefault();
+            window.scrollTo({
+              top: targetSection.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Update active state after scroll completes
+            setTimeout(() => {
+              updateActiveNav();
+            }, 1000);
+          }
+        });
+      });
+      
+      // Update mobile nav active state
+      function updateActiveNav() {
+        const sections = document.querySelectorAll('div[id]');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (window.scrollY >= sectionTop - 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        mobileNavLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav(); // Initialize on load
+    });
+  </script>
+</body>
+</html>
