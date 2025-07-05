@@ -8,7 +8,7 @@
   <title>Sohil Khan - Data Analyst</title>
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>
-   tailwind.config = {
+    tailwind.config = {
       theme: {
         extend: {
           colors: { primary: "#9B6B9E", secondary: "#E2A5C7", accent: "#00F5D4" },
@@ -1208,6 +1208,36 @@
       font-size: 24px;
       margin-left: 5px;
     }
+        /* New styles for modals */
+    .python-modal-grid, .videos-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .close-modal-btn {
+      background: rgba(155, 107, 158, 0.3);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .close-modal-btn:hover {
+      background: rgba(155, 107, 158, 0.5);
+      transform: rotate(90deg);
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -1251,6 +1281,7 @@
       <a href="#skills" class="mobile-nav-link">Skills</a>
       <a href="#python" class="mobile-nav-link">Python</a>
       <a href="#work" class="mobile-nav-link">Work</a>
+      <a href="#certificates" class="mobile-nav-link">Certificates</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
     
@@ -1309,6 +1340,9 @@
             class="nav-link text-white hover:text-secondary transition-colors"
             >Work</a
           >
+          <a href="#certificates"
+           class="nav-link text-white hover:text-secondary transition-colors"
+           >Certificates</a>
           <a
             href="#contact"
             class="nav-link text-white hover:text-secondary transition-colors"
@@ -1499,17 +1533,17 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
             <!-- Project 1 -->
             <div class="python-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.1s">
               <div class="python-card-image">
-                <img src="https://i.postimg.cc/t4C1cQvx/python-data.jpg" alt="Sales Analysis">
+                <img src="https://i.postimg.cc/NFLdVWjr/Screenshot-2025-07-05-103448.png" alt="Sales Analysis">
               </div>
               <div class="python-card-content">
-                <h3>Sales Performance Analysis</h3>
-                <p>Analyzed sales data to identify top-performing products and regions using Pandas and Matplotlib.</p>
+                <h3>Crime Data Analysis</h3>
+                <p>Crime Data Analysis involves examining crime patterns and trends to inform law enforcement and prevention strategies.</p>
                 <div class="python-tags">
                   <span class="python-tag">Pandas</span>
                   <span class="python-tag">Matplotlib</span>
                   <span class="python-tag">Data Cleaning</span>
                 </div>
-                <a href="#" class="python-link">
+                <a href="https://www.canva.com/design/DAGsGyVaJXY/xHG8kxvqUNNvUrLt4lj3DA/edit?utm_content=DAGsGyVaJXY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="python-link">
                   View Project <i class="ri-arrow-right-line"></i>
                 </a>
               </div>
@@ -1518,17 +1552,17 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
             <!-- Project 2 -->
             <div class="python-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
               <div class="python-card-image">
-                <img src="https://i.postimg.cc/3NcGjW1v/python-analysis.jpg" alt="Customer Segmentation">
+                <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Customer Segmentation">
               </div>
               <div class="python-card-content">
-                <h3>Customer Segmentation</h3>
-                <p>Implemented K-means clustering to segment customers based on purchasing behavior.</p>
+                <h3>Comming Soon...</h3>
+                <p></p>
                 <div class="python-tags">
                   <span class="python-tag">Scikit-learn</span>
                   <span class="python-tag">Seaborn</span>
                   <span class="python-tag">Clustering</span>
                 </div>
-                <a href="#" class="python-link">
+                <a href="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" class="python-link">
                   View Project <i class="ri-arrow-right-line"></i>
                 </a>
               </div>
@@ -1537,17 +1571,17 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
             <!-- Project 3 -->
             <div class="python-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s">
               <div class="python-card-image">
-                <img src="https://i.postimg.cc/52K7zG0P/python-stock.jpg" alt="Stock Prediction">
+                <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Stock Prediction">
               </div>
               <div class="python-card-content">
-                <h3>Stock Price Prediction</h3>
-                <p>Created a predictive model using LSTM neural networks to forecast stock prices.</p>
+                <h3>Comming Soon...</h3>
+                <p></p>
                 <div class="python-tags">
                   <span class="python-tag">TensorFlow</span>
                   <span class="python-tag">LSTM</span>
                   <span class="python-tag">Time Series</span>
                 </div>
-                <a href="#" class="python-link">
+                <a href="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" class="python-link">
                   View Project <i class="ri-arrow-right-line"></i>
                 </a>
               </div>
@@ -1637,14 +1671,14 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
             <!-- Video 1 -->
             <div class="video-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.1s">
               <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Python Data Analysis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="play-icon">
+                <iframe src="https://embed.screenapp.io/app/#/shared/CdFVOgZRZt?embed=true" title="Python Data Analysis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="">
                   <i class="ri-play-fill"></i>
                 </div>
               </div>
               <div class="video-content">
-                <h3>Python Data Cleaning Process</h3>
-                <p>Watch how I clean and prepare data for analysis using Python and Pandas.</p>
+                <h3>Python Data Cleaning and visualization</h3>
+                <p>Watch how I cleaning and visualization data for analysis using Python, Matplotlib and Pandas.</p>
               </div>
             </div>
             
@@ -1657,8 +1691,8 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
                 </div>
               </div>
               <div class="video-content">
-                <h3>Creating Interactive Dashboards</h3>
-                <p>Step-by-step guide to building interactive Power BI dashboards.</p>
+                <h3>Comming Soon...</h3>
+                <p></p>
               </div>
             </div>
             
@@ -1671,8 +1705,8 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
                 </div>
               </div>
               <div class="video-content">
-                <h3>SQL Query Optimization Techniques</h3>
-                <p>Learn how to write efficient SQL queries for large datasets.</p>
+                <h3>Comming Soon...</h3>
+                <p></p>
               </div>
             </div>
           </div>
@@ -2310,6 +2344,223 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
           </div>
         </div>
       </div>
+      <div class="mt-12 text-center">
+        <p class="text-gray-400 mb-4">Interested in seeing more of my work?</p>
+        <button class="!rounded-button border border-secondary text-secondary hover:bg-secondary/10 px-6 py-2 text-sm font-medium transition-all">
+          Thanks For visiting ❤️
+        </button>
+      </div>
+    </div>
+  </div>
+    <!-- Python Projects Modal -->
+  <div id="python-projects-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="heading text-3xl md:text-4xl">
+          All <span class="text-primary">Python Projects</span>
+        </h2>
+        <div class="close-modal-btn">
+          <i class="ri-close-line ri-xl"></i>
+        </div>
+      </div>
+      
+      <div class="python-modal-grid">
+        <!-- Project 1 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/NFLdVWjr/Screenshot-2025-07-05-103448.png" alt="Crime Data Analysis">
+          </div>
+          <div class="python-card-content">
+            <h3>Crime Data Analysis</h3>
+            <p>Crime Data Analysis involves examining crime patterns and trends to inform law enforcement and prevention strategies.</p>
+            <div class="python-tags">
+              <span class="python-tag">Pandas</span>
+              <span class="python-tag">Matplotlib</span>
+              <span class="python-tag">Data Cleaning</span>
+            </div>
+            <a href="https://www.canva.com/design/DAGsGyVaJXY/xHG8kxvqUNNvUrLt4lj3DA/edit?utm_content=DAGsGyVaJXY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Customer Segmentation">
+          </div>
+          <div class="python-card-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+            <div class="python-tags">
+              <span class="python-tag">Scikit-learn</span>
+              <span class="python-tag">Seaborn</span>
+              <span class="python-tag">Clustering</span>
+            </div>
+            <a href="#" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Stock Prediction">
+          </div>
+          <div class="python-card-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+            <div class="python-tags">
+              <span class="python-tag">TensorFlow</span>
+              <span class="python-tag">LSTM</span>
+              <span class="python-tag">Time Series</span>
+            </div>
+            <a href="#" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Sales Forecasting">
+          </div>
+          <div class="python-card-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+            <div class="python-tags">
+              <span class="python-tag">Prophet</span>
+              <span class="python-tag">ARIMA</span>
+              <span class="python-tag">Time Series</span>
+            </div>
+            <a href="#" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Sentiment Analysis">
+          </div>
+          <div class="python-card-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+            <div class="python-tags">
+              <span class="python-tag">NLTK</span>
+              <span class="python-tag">TextBlob</span>
+              <span class="python-tag">NLP</span>
+            </div>
+            <a href="#" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="python-card">
+          <div class="python-card-image">
+            <img src="https://i.postimg.cc/h4pFYBph/istockphoto-1972682546-612x612.jpg" alt="Data Cleaning">
+          </div>
+          <div class="python-card-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+            <div class="python-tags">
+              <span class="python-tag">Pandas</span>
+              <span class="python-tag">Sklearn</span>
+              <span class="python-tag">Automation</span>
+            </div>
+            <a href="#" class="python-link">
+              View Project <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Work Videos Modal -->
+  <div id="videos-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="heading text-3xl md:text-4xl">
+          All <span class="text-primary">Work Videos</span>
+        </h2>
+        <div class="close-modal-btn">
+          <i class="ri-close-line ri-xl"></i>
+        </div>
+      </div>
+      
+      <div class="videos-modal-grid">
+        <!-- Video 1 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://embed.screenapp.io/app/#/shared/CdFVOgZRZt?embed=true" title="Python Data Analysis" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Python Data Cleaning and Visualization</h3>
+            <p>Watch how I clean and visualize data for analysis using Python, Matplotlib and Pandas.</p>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Dashboard Creation" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+          </div>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="SQL Query Optimization" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+          </div>
+        </div>
+        
+        <!-- Video 4 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Data Storytelling" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+          </div>
+        </div>
+        
+        <!-- Video 5 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Machine Learning" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+          </div>
+        </div>
+        
+        <!-- Video 6 -->
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Data Visualization" allowfullscreen></iframe>
+          </div>
+          <div class="video-content">
+            <h3>Comming Soon...</h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2780,6 +3031,58 @@ Adept in Python for data analysis, manipulation, and visualization. Experienced 
       
       window.addEventListener('scroll', updateActiveNav);
       updateActiveNav(); // Initialize on load
+    });
+        // New JavaScript for modals
+    document.addEventListener('DOMContentLoaded', function() {
+      // Python Projects Modal
+      const viewMorePythonBtn = document.querySelector('.python-projects-section .text-center button');
+      const pythonModal = document.getElementById('python-projects-modal');
+      const closePythonModal = pythonModal.querySelector('.close-modal-btn');
+      
+      if (viewMorePythonBtn) {
+        viewMorePythonBtn.addEventListener('click', () => {
+          pythonModal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      
+      if (closePythonModal) {
+        closePythonModal.addEventListener('click', () => {
+          pythonModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      }
+      
+      // Videos Modal
+      const viewMoreVideosBtn = document.querySelector('.work-videos-section .text-center button');
+      const videosModal = document.getElementById('videos-modal');
+      const closeVideosModal = videosModal.querySelector('.close-modal-btn');
+      
+      if (viewMoreVideosBtn) {
+        viewMoreVideosBtn.addEventListener('click', () => {
+          videosModal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      
+      if (closeVideosModal) {
+        closeVideosModal.addEventListener('click', () => {
+          videosModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      }
+      
+      // Close modals when clicking outside
+      window.addEventListener('click', (e) => {
+        if (e.target === pythonModal) {
+          pythonModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+        if (e.target === videosModal) {
+          videosModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
     });
   </script>
 </body>
